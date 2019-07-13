@@ -9,6 +9,7 @@ import {
   Text,
   TextInput,
   Image,
+  ScrollView,
   KeyboardAvoidingView
 } from "react-native";
 
@@ -81,65 +82,71 @@ export default class New extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-        <TouchableOpacity
-          style={styles.selectButton}
-          onPress={this.handleSelectImage}
+      <ScrollView>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior="position"
+          enabled
         >
-          <Text Style={styles.selectButtonText}>Selecionar Imagem</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.selectButton}
+            onPress={this.handleSelectImage}
+          >
+            <Text Style={styles.selectButtonText}>Selecionar Imagem</Text>
+          </TouchableOpacity>
 
-        {this.state.preview && (
-          <Image style={styles.preview} source={this.state.preview} />
-        )}
+          {this.state.preview && (
+            <Image style={styles.preview} source={this.state.preview} />
+          )}
 
-        <TextInput
-          style={styles.input}
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Nome do Autor"
-          placeholderTextColor="#999"
-          value={this.state.author}
-          onChangeText={author => this.setState({ author })}
-        />
+          <TextInput
+            style={styles.input}
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Nome do Autor"
+            placeholderTextColor="#999"
+            value={this.state.author}
+            onChangeText={author => this.setState({ author })}
+          />
 
-        <TextInput
-          style={styles.input}
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Local da Foto"
-          placeholderTextColor="#999"
-          value={this.state.place}
-          onChangeText={place => this.setState({ place })}
-        />
+          <TextInput
+            style={styles.input}
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Local da Foto"
+            placeholderTextColor="#999"
+            value={this.state.place}
+            onChangeText={place => this.setState({ place })}
+          />
 
-        <TextInput
-          style={styles.input}
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Decrição"
-          placeholderTextColor="#999"
-          value={this.state.description}
-          onChangeText={description => this.setState({ description })}
-        />
+          <TextInput
+            style={styles.input}
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Decrição"
+            placeholderTextColor="#999"
+            value={this.state.description}
+            onChangeText={description => this.setState({ description })}
+          />
 
-        <TextInput
-          style={styles.input}
-          autoCorrect={false}
-          autoCapitalize="none"
-          placeholder="Hashtags"
-          placeholderTextColor="#999"
-          value={this.state.hashtags}
-          onChangeText={hashtags => this.setState({ hashtags })}
-        />
+          <TextInput
+            style={styles.input}
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Hashtags"
+            placeholderTextColor="#999"
+            value={this.state.hashtags}
+            onChangeText={hashtags => this.setState({ hashtags })}
+          />
 
-        <TouchableOpacity
-          style={styles.shareButton}
-          onPress={this.handleSubmit}
-        >
-          <Text style={styles.shareButtonText}>Compartilhar</Text>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+          <TouchableOpacity
+            style={styles.shareButton}
+            onPress={this.handleSubmit}
+          >
+            <Text style={styles.shareButtonText}>Compartilhar</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      </ScrollView>
     );
   }
 }
