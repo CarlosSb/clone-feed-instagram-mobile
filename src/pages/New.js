@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
-  Image
+  Image,
+  KeyboardAvoidingView
 } from "react-native";
 
 export default class New extends Component {
@@ -58,7 +59,7 @@ export default class New extends Component {
             name: `${prefix}.${ext}`
           };
 
-          this.setState({ preview, image }); 
+          this.setState({ preview, image });
         }
       }
     );
@@ -80,7 +81,7 @@ export default class New extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
         <TouchableOpacity
           style={styles.selectButton}
           onPress={this.handleSelectImage}
@@ -106,7 +107,7 @@ export default class New extends Component {
           style={styles.input}
           autoCorrect={false}
           autoCapitalize="none"
-          placeholder="Local da FOto"
+          placeholder="Local da Foto"
           placeholderTextColor="#999"
           value={this.state.place}
           onChangeText={place => this.setState({ place })}
@@ -138,7 +139,7 @@ export default class New extends Component {
         >
           <Text style={styles.shareButtonText}>Compartilhar</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
